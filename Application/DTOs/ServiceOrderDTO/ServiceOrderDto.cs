@@ -9,11 +9,11 @@ namespace Application.DTOs
     {
         public int IdOrder { get; set; }
         public int IdVehicle { get; set; }
-        public int IdMechanic { get; set; }
+        public int IdUser { get; set; }
         public int IdServiceType { get; set; }
         public int IdState { get; set; }
-        public DateTime EntryDate { get; set; }
-        public DateTime? ExitDate { get; set; }
+        public DateOnly EntryDate { get; set; }
+        public DateOnly ExitDate { get; set; }
         public string? ClientMessage { get; set; }
     }
 }

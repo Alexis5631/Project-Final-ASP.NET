@@ -7,7 +7,7 @@ namespace Application.DTOs
 {
     public class DetailsDiagnostic
     {
-        public int IdOrder { get; set; }
+        public int IdServiceOrder { get; set; }
         public int IdDiagnostic { get; set; }
     }
 }

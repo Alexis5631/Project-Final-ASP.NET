@@ -7,10 +7,10 @@ namespace Application.DTOs
 {
     public class Auditory
     {
-        public int IdAuditory { get; set; }
-        public string? AffectedEntity { get; set; }
-        public string? ActionType { get; set; }
-        public int ResponsibleUserId { get; set; }
+        public int Id { get; set; }
+        public string? EntityName { get; set; }
+        public string? ChangeType { get; set; }
+        public string? ChangedBy { get; set; }
         public DateTime Date { get; set; }
     }
 }

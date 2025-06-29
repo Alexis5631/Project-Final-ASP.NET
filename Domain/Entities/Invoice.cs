@@ -8,7 +8,7 @@ namespace Domain.Entities
     public class Invoice : BaseEntity
     {
         public int IdInvoice { get; set; }
-        public int IdOrder { get; set; }
+        public int IdServiceOrder { get; set; }
         public DateOnly IssueDate { get; set; }
         public decimal LaborTotal { get; set; }
         public decimal ReplacementsTotal { get; set; }
