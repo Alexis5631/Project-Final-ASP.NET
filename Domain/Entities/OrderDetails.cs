@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Domain.Entities
 {
-    public class OrderDetails
+    public class OrderDetails : BaseEntity
     {
         public int IdDetail { get; set; }
         public int IdOrder { get; set; }
@@ -14,7 +14,7 @@ namespace Domain.Entities
         public decimal TotalCost { get; set; }
         
         // Navigation properties
-        public ServiceOrder ServiceOrder { get; set; }
-        public Replacement Replacement { get; set; }
+        public ServiceOrder? ServiceOrder { get; set; }
+        public Replacement? Replacement { get; set; }
     }
 }

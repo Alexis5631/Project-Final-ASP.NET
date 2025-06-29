@@ -7,11 +7,11 @@ namespace Domain.Entities
 {
     public class DetailsDiagnostic
     {
-        public int IdOrder { get; set; }
+        public int IdServiceOrder { get; set; }
         public int IdDiagnostic { get; set; }
         
         // Navigation properties
-        public ServiceOrder ServiceOrder { get; set; }
-        public Diagnostic Diagnostic { get; set; }
+        public ServiceOrder? ServiceOrder { get; set; }
+        public Diagnostic? Diagnostic { get; set; }
     }
 }

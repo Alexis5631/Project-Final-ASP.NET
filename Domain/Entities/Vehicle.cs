@@ -5,18 +5,18 @@ using System.Threading.Tasks;
 
 namespace Domain.Entities
 {
-    public class Vehicle
+    public class Vehicle : BaseEntity
     {
         public int IdVehicle { get; set; }
         public int IdClient { get; set; }
-        public string Brand { get; set; }
-        public string Model { get; set; }
+        public string? Brand { get; set; }
+        public string? Model { get; set; }
         public int Year { get; set; }
-        public string SerialNumberVIN { get; set; }
+        public string? SerialNumberVIN { get; set; }
         public int Mileage { get; set; }
         
         // Navigation properties
-        public Client Client { get; set; }
-        public ICollection<ServiceOrder> ServiceOrders { get; set; }
+        public Client? Client { get; set; }
+        public ICollection<ServiceOrder>? ServiceOrders { get; set; }
     }
 }

@@ -5,12 +5,12 @@ using System.Threading.Tasks;
 
 namespace Domain.Entities
 {
-    public class Inventory
+    public class Inventory : BaseEntity
     {
         public int IdInventory { get; set; }
-        public string Name { get; set; }
-        
+        public string? Name { get; set; }
+
         // Navigation properties
-        public ICollection<InventoryDetail> InventoryDetails { get; set; }
+        public ICollection<InventoryDetail>? InventoryDetails { get; set; }
     }
 }

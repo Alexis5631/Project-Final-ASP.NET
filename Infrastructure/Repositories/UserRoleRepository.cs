@@ -1,5 +1,6 @@
 using Application.Interfaces;
 using Domain.Entities;
+using Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,31 +8,34 @@ using System.Threading.Tasks;
 
 namespace Infrastructure.Repositories
 {
-    public class UserRoleRepository : GenericRepository<UserRole>, IUserRoleRepository
+    public class UserRoleRepository : IUserRoleRepository
     {
-        public UserRoleRepository(DbContext context) : base(context)
+        private readonly AutoTallerDbContext _context;
+        public UserRoleRepository(AutoTallerDbContext context)
         {
+            _context = context;
         }
 
-        public async Task<IEnumerable<UserRole>> GetUserRolesByUserIdAsync(int userId)
+        public async Task<IEnumerable<UserRole>> GetAllAsync()
         {
-            return await _dbSet
-                .Include(ur => ur.Role)
-                .Where(ur => ur.IdUser == userId)
-                .ToListAsync();
+            return await _context.UserRole.ToListAsync();
         }
 
-        public async Task<IEnumerable<UserRole>> GetUserRolesByRoleIdAsync(int roleId)
+        public async Task<UserRole?> GetByIdsAsync(int userId, int rolId)
         {
-            return await _dbSet
-                .Include(ur => ur.User)
-                .Where(ur => ur.IdRole == roleId)
-                .ToListAsync();
+            return await _context.UserRole
+                .FirstOrDefaultAsync(ur => ur.IdUser == userId && ur.IdRole == rolId)
+                ?? throw new KeyNotFoundException($"UserRol with UserId {userId} and RolId {rolId} was not found");
         }
 
-        public async Task<bool> UserHasRoleAsync(int userId, int roleId)
+        public void Remove(UserRole entity)
         {
-            return await _dbSet.AnyAsync(ur => ur.IdUser == userId && ur.IdRole == roleId);
+            _context.UserRole.Remove(entity);
+        }
+
+        public void Update(UserRole entity)
+        {
+            _context.UserRole.Update(entity);
         }
     }
 } 

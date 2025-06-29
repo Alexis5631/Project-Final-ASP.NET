@@ -5,12 +5,12 @@ using System.Threading.Tasks;
 
 namespace Domain.Entities
 {
-    public class State
+    public class State : BaseEntity
     {
         public int IdState { get; set; }
-        public string StateType { get; set; }
-        
+        public string? StateType { get; set; }
+
         // Navigation properties
-        public ICollection<ServiceOrder> ServiceOrders { get; set; }
+        public ICollection<ServiceOrder>? ServiceOrders { get; set; }
     }
 }

@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Domain.Entities
 {
-    public class InventoryDetail
+    public class InventoryDetail : BaseEntity
     {
         public int IdDetail { get; set; }
         public int IdOrder { get; set; }
@@ -13,7 +13,7 @@ namespace Domain.Entities
         public int Quantity { get; set; }
         
         // Navigation properties
-        public ServiceOrder ServiceOrder { get; set; }
-        public Inventory Inventory { get; set; }
+        public ServiceOrder? ServiceOrder { get; set; }
+        public Inventory? Inventory { get; set; }
     }
 }

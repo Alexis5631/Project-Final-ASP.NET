@@ -5,14 +5,14 @@ using System.Threading.Tasks;
 
 namespace Domain.Entities
 {
-    public class Diagnostic
+    public class Diagnostic : BaseEntity
     {
         public int IdDiagnostic { get; set; }
         public int IdUser { get; set; }
-        public string Description { get; set; }
+        public string? Description { get; set; }
         
         // Navigation properties
-        public User User { get; set; }
-        public ICollection<DetailsDiagnostic> DetailsDiagnostics { get; set; }
+        public User? User { get; set; }
+        public ICollection<DetailsDiagnostic>? DetailsDiagnostics { get; set; }
     }
 }
