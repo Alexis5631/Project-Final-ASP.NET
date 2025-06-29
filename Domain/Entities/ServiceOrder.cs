@@ -7,7 +7,7 @@ namespace Domain.Entities
 {
     public class ServiceOrder : BaseEntity
     {
-        public int IdOrder { get; set; }
+        public int Id { get; set; }
         public int IdVehicle { get; set; }
         public int IdUser { get; set; }
         public int IdServiceType { get; set; }

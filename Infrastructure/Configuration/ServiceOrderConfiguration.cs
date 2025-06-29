@@ -15,11 +15,11 @@ namespace Infrastructure.Configuration
             builder.ToTable("service_orders");
 
             // Clave primaria
-            builder.HasKey(d => d.IdOrder);
-            builder.Property(d => d.IdOrder)
+            builder.HasKey(c => c.Id);
+            builder.Property(c => c.Id)
                 .ValueGeneratedOnAdd()
                 .IsRequired()
-                .HasColumnName("id_order");
+                .HasColumnName("id");
 
             builder.Property(a => a.IdUser)
                 .IsRequired()
@@ -78,10 +78,6 @@ namespace Infrastructure.Configuration
                 .HasColumnType("date")
                 .HasDefaultValueSql("CURRENT_DATE")
                 .ValueGeneratedOnAddOrUpdate();
-
-             builder.HasOne(so => so.Invoice)
-                .WithOne(i => i.ServiceOrder)
-                .HasForeignKey<Invoice>(i => i.IdServiceOrder);
         }
     }
 }

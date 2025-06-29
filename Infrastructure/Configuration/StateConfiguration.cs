@@ -15,11 +15,11 @@ namespace Infrastructure.Configuration
             builder.ToTable("states");
 
             // Clave primaria
-            builder.HasKey(d => d.IdState);
-            builder.Property(d => d.IdState)
+            builder.HasKey(c => c.Id);
+            builder.Property(c => c.Id)
                 .ValueGeneratedOnAdd()
                 .IsRequired()
-                .HasColumnName("id_state");
+                .HasColumnName("id");
 
             builder.Property(a => a.StateType)
                 .IsRequired()

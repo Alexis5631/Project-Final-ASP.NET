@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Alexis\\Project-Final-ASP.NET\\Infrastructure\\Infrastructure.csproj": {}
+    "C:\\Users\\USUARIO\\Documents\\ProyectoAlexis\\Project-Final-ASP.NET\\Infrastructure\\Infrastructure.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Alexis\\Project-Final-ASP.NET\\Application\\Application.csproj": {
+    "C:\\Users\\USUARIO\\Documents\\ProyectoAlexis\\Project-Final-ASP.NET\\Application\\Application.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Alexis\\Project-Final-ASP.NET\\Application\\Application.csproj",
+        "projectUniqueName": "C:\\Users\\USUARIO\\Documents\\ProyectoAlexis\\Project-Final-ASP.NET\\Application\\Application.csproj",
         "projectName": "Application",
-        "projectPath": "C:\\Users\\Alexis\\Project-Final-ASP.NET\\Application\\Application.csproj",
-        "packagesPath": "C:\\Users\\Alexis\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Alexis\\Project-Final-ASP.NET\\Application\\obj\\",
+        "projectPath": "C:\\Users\\USUARIO\\Documents\\ProyectoAlexis\\Project-Final-ASP.NET\\Application\\Application.csproj",
+        "packagesPath": "C:\\Users\\USUARIO\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\USUARIO\\Documents\\ProyectoAlexis\\Project-Final-ASP.NET\\Application\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Alexis\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\USUARIO\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net9.0"
@@ -26,8 +26,8 @@
           "net9.0": {
             "targetAlias": "net9.0",
             "projectReferences": {
-              "C:\\Users\\Alexis\\Project-Final-ASP.NET\\Domain\\Domain.csproj": {
-                "projectPath": "C:\\Users\\Alexis\\Project-Final-ASP.NET\\Domain\\Domain.csproj"
+              "C:\\Users\\USUARIO\\Documents\\ProyectoAlexis\\Project-Final-ASP.NET\\Domain\\Domain.csproj": {
+                "projectPath": "C:\\Users\\USUARIO\\Documents\\ProyectoAlexis\\Project-Final-ASP.NET\\Domain\\Domain.csproj"
               }
             }
           }
@@ -42,7 +42,7 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "9.0.200"
+        "SdkAnalysisLevel": "9.0.300"
       },
       "frameworks": {
         "net9.0": {
@@ -63,21 +63,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.203/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.300/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Alexis\\Project-Final-ASP.NET\\Domain\\Domain.csproj": {
+    "C:\\Users\\USUARIO\\Documents\\ProyectoAlexis\\Project-Final-ASP.NET\\Domain\\Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Alexis\\Project-Final-ASP.NET\\Domain\\Domain.csproj",
+        "projectUniqueName": "C:\\Users\\USUARIO\\Documents\\ProyectoAlexis\\Project-Final-ASP.NET\\Domain\\Domain.csproj",
         "projectName": "Domain",
-        "projectPath": "C:\\Users\\Alexis\\Project-Final-ASP.NET\\Domain\\Domain.csproj",
-        "packagesPath": "C:\\Users\\Alexis\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Alexis\\Project-Final-ASP.NET\\Domain\\obj\\",
+        "projectPath": "C:\\Users\\USUARIO\\Documents\\ProyectoAlexis\\Project-Final-ASP.NET\\Domain\\Domain.csproj",
+        "packagesPath": "C:\\Users\\USUARIO\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\USUARIO\\Documents\\ProyectoAlexis\\Project-Final-ASP.NET\\Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Alexis\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\USUARIO\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net9.0"
@@ -101,7 +101,7 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "9.0.200"
+        "SdkAnalysisLevel": "9.0.300"
       },
       "frameworks": {
         "net9.0": {
@@ -122,21 +122,21 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.203/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.300/PortableRuntimeIdentifierGraph.json"
         }
       }
     },
-    "C:\\Users\\Alexis\\Project-Final-ASP.NET\\Infrastructure\\Infrastructure.csproj": {
+    "C:\\Users\\USUARIO\\Documents\\ProyectoAlexis\\Project-Final-ASP.NET\\Infrastructure\\Infrastructure.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Alexis\\Project-Final-ASP.NET\\Infrastructure\\Infrastructure.csproj",
+        "projectUniqueName": "C:\\Users\\USUARIO\\Documents\\ProyectoAlexis\\Project-Final-ASP.NET\\Infrastructure\\Infrastructure.csproj",
         "projectName": "Infrastructure",
-        "projectPath": "C:\\Users\\Alexis\\Project-Final-ASP.NET\\Infrastructure\\Infrastructure.csproj",
-        "packagesPath": "C:\\Users\\Alexis\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Alexis\\Project-Final-ASP.NET\\Infrastructure\\obj\\",
+        "projectPath": "C:\\Users\\USUARIO\\Documents\\ProyectoAlexis\\Project-Final-ASP.NET\\Infrastructure\\Infrastructure.csproj",
+        "packagesPath": "C:\\Users\\USUARIO\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\USUARIO\\Documents\\ProyectoAlexis\\Project-Final-ASP.NET\\Infrastructure\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Alexis\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "C:\\Users\\USUARIO\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net9.0"
@@ -148,11 +148,11 @@
           "net9.0": {
             "targetAlias": "net9.0",
             "projectReferences": {
-              "C:\\Users\\Alexis\\Project-Final-ASP.NET\\Application\\Application.csproj": {
-                "projectPath": "C:\\Users\\Alexis\\Project-Final-ASP.NET\\Application\\Application.csproj"
+              "C:\\Users\\USUARIO\\Documents\\ProyectoAlexis\\Project-Final-ASP.NET\\Application\\Application.csproj": {
+                "projectPath": "C:\\Users\\USUARIO\\Documents\\ProyectoAlexis\\Project-Final-ASP.NET\\Application\\Application.csproj"
               },
-              "C:\\Users\\Alexis\\Project-Final-ASP.NET\\Domain\\Domain.csproj": {
-                "projectPath": "C:\\Users\\Alexis\\Project-Final-ASP.NET\\Domain\\Domain.csproj"
+              "C:\\Users\\USUARIO\\Documents\\ProyectoAlexis\\Project-Final-ASP.NET\\Domain\\Domain.csproj": {
+                "projectPath": "C:\\Users\\USUARIO\\Documents\\ProyectoAlexis\\Project-Final-ASP.NET\\Domain\\Domain.csproj"
               }
             }
           }
@@ -167,12 +167,16 @@
           "auditLevel": "low",
           "auditMode": "direct"
         },
-        "SdkAnalysisLevel": "9.0.200"
+        "SdkAnalysisLevel": "9.0.300"
       },
       "frameworks": {
         "net9.0": {
           "targetAlias": "net9.0",
           "dependencies": {
+            "Microsoft.AspNetCore.Http.Abstractions": {
+              "target": "Package",
+              "version": "[2.3.0, )"
+            },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
               "version": "[9.0.3, )"
@@ -198,7 +202,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.203/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.300/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

@@ -1,15 +1,17 @@
 using Microsoft.EntityFrameworkCore;
 using System.Reflection;
 using Domain.Entities;
+using Infrastructure.Interceptors;
 
 namespace Infrastructure.Data
 {
     public class AutoTallerDbContext : DbContext
     {
-        public AutoTallerDbContext(DbContextOptions<AutoTallerDbContext> options)
+        public readonly AuditInterceptor _auditInterceptor;
+        public AutoTallerDbContext(DbContextOptions<AutoTallerDbContext> options, AuditInterceptor auditInterceptor)
             : base(options)
         {
-
+            _auditInterceptor = auditInterceptor;
         }
         public DbSet<Specialization> Specialization { get; set; }
         public DbSet<ServiceType> ServiceType { get; set; }
@@ -34,6 +36,17 @@ namespace Infrastructure.Data
         {
             base.OnModelCreating(modelBuilder);
             modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
+
+            modelBuilder.Entity<ServiceOrder>()
+                .HasOne(e => e.Invoice)
+                .WithOne(e => e.ServiceOrder)
+                .HasForeignKey<Invoice>(e => e.IdServiceOrder)
+                .IsRequired();
+        }
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        {
+            optionsBuilder.AddInterceptors(_auditInterceptor);
         }
     }
 }

@@ -5,9 +5,9 @@ using System.Threading.Tasks;
 
 namespace Application.DTOs
 {
-    public class ServiceOrder
+    public class ServiceOrderDto
     {
-        public int IdOrder { get; set; }
+        public int Id { get; set; }
         public int IdVehicle { get; set; }
         public int IdUser { get; set; }
         public int IdServiceType { get; set; }

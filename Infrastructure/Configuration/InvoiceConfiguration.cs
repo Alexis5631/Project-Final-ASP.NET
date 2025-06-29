@@ -14,11 +14,11 @@ namespace Infrastructure.Configuration
         {
             builder.ToTable("invoices");
             // Clave primaria
-            builder.HasKey(d => d.IdInvoice);
-            builder.Property(d => d.IdInvoice)
+            builder.HasKey(c => c.Id);
+            builder.Property(c => c.Id)
                 .ValueGeneratedOnAdd()
                 .IsRequired()
-                .HasColumnName("id_invoice");
+                .HasColumnName("id");
 
             builder.Property(e => e.IssueDate)
                 .HasColumnName("issue_date")
@@ -40,10 +40,6 @@ namespace Infrastructure.Configuration
 
              builder.Property(i => i.IdServiceOrder)
                 .HasColumnName("service_order_id");
-
-            builder.HasOne(i => i.ServiceOrder)
-                .WithOne(s => s.Invoice)
-                .HasForeignKey<Invoice>(i => i.IdServiceOrder);
 
             builder.Property(e => e.CreatedAt)
                 .HasColumnName("created_at")

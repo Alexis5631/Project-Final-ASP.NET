@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace Application.DTOs
 {
-    public class Auditory
+    public class AuditoryDto
     {
         public int Id { get; set; }
         public string? EntityName { get; set; }

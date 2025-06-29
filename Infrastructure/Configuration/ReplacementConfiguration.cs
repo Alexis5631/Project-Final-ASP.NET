@@ -15,11 +15,11 @@ namespace Infrastructure.Configuration
             builder.ToTable("replacements");
 
             // Clave primaria
-            builder.HasKey(d => d.IdReplacement);
-            builder.Property(d => d.IdReplacement)
+            builder.HasKey(c => c.Id);
+            builder.Property(c => c.Id)
                 .ValueGeneratedOnAdd()
                 .IsRequired()
-                .HasColumnName("id_replacement");
+                .HasColumnName("id");
 
             builder.Property(a => a.Description)
                 .IsRequired()

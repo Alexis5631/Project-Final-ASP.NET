@@ -15,11 +15,11 @@ namespace Infrastructure.Configuration
             builder.ToTable("service_types");
 
             // Clave primaria
-            builder.HasKey(d => d.IdServiceType);
-            builder.Property(d => d.IdServiceType)
+            builder.HasKey(c => c.Id);
+            builder.Property(c => c.Id)
                 .ValueGeneratedOnAdd()
                 .IsRequired()
-                .HasColumnName("id_service_type");
+                .HasColumnName("id");
 
             builder.Property(a => a.Description)
                 .IsRequired()

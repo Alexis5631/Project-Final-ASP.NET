@@ -15,11 +15,11 @@ namespace Infrastructure.Configuration
             builder.ToTable("clients");
 
             // Clave primaria
-            builder.HasKey(c => c.IdClient);
-            builder.Property(c => c.IdClient)
+            builder.HasKey(c => c.Id);
+            builder.Property(c => c.Id)
                 .ValueGeneratedOnAdd()
                 .IsRequired()
-                .HasColumnName("id_client");
+                .HasColumnName("id");
 
             builder.Property(c => c.Name)
                 .IsRequired()
