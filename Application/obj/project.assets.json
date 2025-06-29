@@ -27,19 +27,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\USUARIO\\.nuget\\packages\\": {}
+    "C:\\Users\\Alexis\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\USUARIO\\Documents\\ProyectoAlexis\\Project-Final-ASP.NET\\Application\\Application.csproj",
+      "projectUniqueName": "C:\\Users\\Alexis\\Project-Final-ASP.NET\\Application\\Application.csproj",
       "projectName": "Application",
-      "projectPath": "C:\\Users\\USUARIO\\Documents\\ProyectoAlexis\\Project-Final-ASP.NET\\Application\\Application.csproj",
-      "packagesPath": "C:\\Users\\USUARIO\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\USUARIO\\Documents\\ProyectoAlexis\\Project-Final-ASP.NET\\Application\\obj\\",
+      "projectPath": "C:\\Users\\Alexis\\Project-Final-ASP.NET\\Application\\Application.csproj",
+      "packagesPath": "C:\\Users\\Alexis\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Alexis\\Project-Final-ASP.NET\\Application\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\USUARIO\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\Alexis\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net9.0"
@@ -51,8 +51,8 @@
         "net9.0": {
           "targetAlias": "net9.0",
           "projectReferences": {
-            "C:\\Users\\USUARIO\\Documents\\ProyectoAlexis\\Project-Final-ASP.NET\\Domain\\Domain.csproj": {
-              "projectPath": "C:\\Users\\USUARIO\\Documents\\ProyectoAlexis\\Project-Final-ASP.NET\\Domain\\Domain.csproj"
+            "C:\\Users\\Alexis\\Project-Final-ASP.NET\\Domain\\Domain.csproj": {
+              "projectPath": "C:\\Users\\Alexis\\Project-Final-ASP.NET\\Domain\\Domain.csproj"
             }
           }
         }
@@ -67,7 +67,7 @@
         "auditLevel": "low",
         "auditMode": "direct"
       },
-      "SdkAnalysisLevel": "9.0.300"
+      "SdkAnalysisLevel": "9.0.200"
     },
     "frameworks": {
       "net9.0": {
@@ -88,7 +88,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.300/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.203/PortableRuntimeIdentifierGraph.json"
       }
     }
   }

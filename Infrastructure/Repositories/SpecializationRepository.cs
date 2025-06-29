@@ -14,5 +14,11 @@ namespace Infrastructure.Repositories
         {
             _context = context;
         }
+
+        public override async Task<Specialization> GetByIdAsync(int id)
+        {
+            return await _context.Specialization
+                .FirstOrDefaultAsync(cc => cc.IdSpecialization == id) ?? throw new KeyNotFoundException($"Specialization with id {id} was not found");
+        }
     }
 } 
