@@ -5,13 +5,13 @@ using System.Threading.Tasks;
 
 namespace Domain.Entities
 {
-    public class ServiceType
+    public class ServiceType : BaseEntity
     {
         public int IdServiceType { get; set; }
         public int Duration { get; set; }
-        public string Description { get; set; }
-        
+        public string? Description { get; set; }
+
         // Navigation properties
-        public ICollection<ServiceOrder> ServiceOrders { get; set; }
+        public ICollection<ServiceOrder>? ServiceOrders { get; set; }
     }
 }

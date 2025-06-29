@@ -1,5 +1,6 @@
 using Application.Interfaces;
 using Domain.Entities;
+using Infrastructure.Data;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,31 +8,35 @@ using System.Threading.Tasks;
 
 namespace Infrastructure.Repositories
 {
-    public class UserSpecializationRepository : GenericRepository<UserSpecialization>, IUserSpecializationRepository
+    public class UserSpecializationRepository : IUserSpecializationRepository
     {
-        public UserSpecializationRepository(DbContext context) : base(context)
+        private readonly AutoTallerDbContext _context;
+        public UserSpecializationRepository(AutoTallerDbContext context)
         {
+            _context = context;
         }
 
-        public async Task<IEnumerable<UserSpecialization>> GetUserSpecializationsByUserIdAsync(int userId)
+        public async Task<IEnumerable<UserSpecialization>> GetAllAsync()
         {
-            return await _dbSet
-                .Include(us => us.Specialization)
-                .Where(us => us.IdUser == userId)
-                .ToListAsync();
+            return await _context.Set<UserSpecialization>().ToListAsync();
         }
 
-        public async Task<IEnumerable<UserSpecialization>> GetUserSpecializationsBySpecializationIdAsync(int specializationId)
+        public async Task<UserSpecialization?> GetByIdsAsync(int specializationId, int userId)
         {
-            return await _dbSet
-                .Include(us => us.User)
-                .Where(us => us.IdSpecialization == specializationId)
-                .ToListAsync();
+            return await _context.UserSpecialization
+                .FirstOrDefaultAsync(ur => ur.IdSpecialization == specializationId && ur.IdUser == userId)
+                ?? throw new KeyNotFoundException($"User Specialization with SpecializationId {specializationId} and UserId {userId} was not found");
         }
 
-        public async Task<bool> UserHasSpecializationAsync(int userId, int specializationId)
+        public void Remove(UserSpecialization entity)
         {
-            return await _dbSet.AnyAsync(us => us.IdUser == userId && us.IdSpecialization == specializationId);
+            _context.Set<UserSpecialization>().Remove(entity);
+        }
+
+        public void Update(UserSpecialization entity)
+        {
+            _context.Set<UserSpecialization>()
+                .Update(entity);
         }
     }
 } 

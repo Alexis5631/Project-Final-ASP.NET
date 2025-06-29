@@ -1,72 +1,82 @@
-using Application.Interfaces;
-using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
+using Application.Interfaces;
+using Domain.Entities;
+using Infrastructure.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace Infrastructure.Repositories
 {
-    public class GenericRepository<T> : IGenericRepository<T> where T : class
+    public class GenericRepository<T> : IGenericRepository<T> where T : BaseEntity
     {
-        protected readonly DbContext _context;
-        protected readonly DbSet<T> _dbSet;
+        private readonly AutoTallerDbContext _context;
 
-        public GenericRepository(DbContext context)
+        public GenericRepository(AutoTallerDbContext context)
+
         {
             _context = context;
-            _dbSet = context.Set<T>();
         }
 
-        public async Task<T> GetByIdAsync(int id)
+        public virtual void Add(T entity)
         {
-            return await _dbSet.FindAsync(id);
+            _context.Set<T>().Add(entity);
+        }
+        public virtual void AddRange(IEnumerable<T> entities)
+        {
+            _context.Set<T>().AddRange(entities);
+        }
+    
+        public virtual IEnumerable<T> Find(Expression<Func<T, bool>> expression)
+        {
+            return _context.Set<T>().Where(expression);
         }
 
-        public async Task<IEnumerable<T>> GetAllAsync()
+        public virtual async Task<IEnumerable<T>> GetAllAsync()
         {
-            return await _dbSet.ToListAsync();
+            return await _context.Set<T>().ToListAsync();
         }
 
-        public async Task<IEnumerable<T>> FindAsync(Expression<Func<T, bool>> predicate)
+        public virtual async Task<(int totalRegisters, IEnumerable<T> registers)> GetAllAsync(int pageIndex, int pageSize, string search)
         {
-            return await _dbSet.Where(predicate).ToListAsync();
-        }
+            var totalRegisters = await _context.Set<T>()
+                                        .CountAsync();
 
-        public async Task<T> AddAsync(T entity)
+            var registers = await _context.Set<T>()
+                                    .Skip((pageIndex - 1) * pageSize)
+                                    .Take(pageSize)
+                                    .ToListAsync();
+
+            return (totalRegisters, registers);
+        }
+    
+        public virtual async Task<T> GetByIdAsync(int id)
         {
-            await _dbSet.AddAsync(entity);
-            await _context.SaveChangesAsync();
+            var entity = await _context.Set<T>().FindAsync(id) ?? throw new KeyNotFoundException($"Entity with id {id} was not found.");
             return entity;
         }
-
-        public async Task<T> UpdateAsync(T entity)
+    
+        public virtual Task<T> GetByIdAsync(string id)
         {
-            _dbSet.Update(entity);
-            await _context.SaveChangesAsync();
-            return entity;
+            throw new NotImplementedException();
         }
-
-        public async Task DeleteAsync(T entity)
+    
+        public virtual void Remove(T entity)
         {
-            _dbSet.Remove(entity);
-            await _context.SaveChangesAsync();
+            _context.Set<T>().Remove(entity);
         }
-
-        public async Task<bool> ExistsAsync(int id)
+    
+        public virtual void RemoveRange(IEnumerable<T> entities)
         {
-            return await _dbSet.FindAsync(id) != null;
+            _context.Set<T>().RemoveRange(entities);
         }
-
-        public async Task<int> CountAsync()
+    
+        public virtual void Update(T entity)
         {
-            return await _dbSet.CountAsync();
-        }
-
-        public async Task<int> CountAsync(Expression<Func<T, bool>> predicate)
-        {
-            return await _dbSet.CountAsync(predicate);
+            _context.Set<T>()
+                .Update(entity);
         }
     }
-} 
+}

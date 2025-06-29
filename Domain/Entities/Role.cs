@@ -5,12 +5,12 @@ using System.Threading.Tasks;
 
 namespace Domain.Entities
 {
-    public class Role
+    public class Role : BaseEntity
     {
         public int IdRole { get; set; }
-        public string Description { get; set; }
+        public string? Description { get; set; }
         
         // Navigation properties
-        public ICollection<UserRole> UserRoles { get; set; }
+        public ICollection<UserRole>? UserRoles { get; set; }
     }
 }

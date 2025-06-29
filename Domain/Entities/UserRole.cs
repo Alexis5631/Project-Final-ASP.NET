@@ -11,7 +11,7 @@ namespace Domain.Entities
         public int IdRole { get; set; }
         
         // Navigation properties
-        public User User { get; set; }
-        public Role Role { get; set; }
+        public User? User { get; set; }
+        public Role? Role { get; set; }
     }
 }

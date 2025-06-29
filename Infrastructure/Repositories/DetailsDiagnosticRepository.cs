@@ -1,40 +1,43 @@
-using Application.Interfaces;
-using Domain.Entities;
-using Microsoft.EntityFrameworkCore;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Application.Interfaces;
+using Domain.Entities;
+using Infrastructure.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace Infrastructure.Repositories
 {
-    public class DetailsDiagnosticRepository : GenericRepository<DetailsDiagnostic>, IDetailsDiagnosticRepository
+    public class DetailsDiagnosticRepository : IDetailsDiagnosticRepository
     {
-        public DetailsDiagnosticRepository(DbContext context) : base(context)
+        public readonly AutoTallerDbContext _context;
+
+        public DetailsDiagnosticRepository(AutoTallerDbContext context)
         {
+            _context = context;
         }
 
-        public async Task<IEnumerable<DetailsDiagnostic>> GetDetailsDiagnosticByOrderAsync(int orderId)
+        public async Task<IEnumerable<DetailsDiagnostic>> GetAllAsync()
         {
-            return await _dbSet
-                .Include(dd => dd.Diagnostic)
-                .Where(dd => dd.IdOrder == orderId)
-                .ToListAsync();
+            return await _context.Set<DetailsDiagnostic>().ToListAsync();
+        }
+        public async Task<DetailsDiagnostic?> GetByIdsAsync(int diagnosticId, int serviceOrderId)
+        {
+            return await _context.DetailsDiagnostic
+                .FirstOrDefaultAsync(ur => ur.IdDiagnostic == diagnosticId && ur.IdServiceOrder == serviceOrderId)
+                ?? throw new KeyNotFoundException($"Details diagnostic with DiagnosticId {diagnosticId} and ServiceOrderId {serviceOrderId} was not found");
         }
 
-        public async Task<IEnumerable<DetailsDiagnostic>> GetDetailsDiagnosticByDiagnosticAsync(int diagnosticId)
+        public void Remove(DetailsDiagnostic entity)
         {
-            return await _dbSet
-                .Include(dd => dd.ServiceOrder)
-                .Where(dd => dd.IdDiagnostic == diagnosticId)
-                .ToListAsync();
+            _context.Set<DetailsDiagnostic>().Remove(entity);
         }
 
-        public async Task<IEnumerable<DetailsDiagnostic>> GetDetailsDiagnosticWithRelationsAsync()
+        public void Update(DetailsDiagnostic entity)
         {
-            return await _dbSet
-                .Include(dd => dd.ServiceOrder)
-                .Include(dd => dd.Diagnostic)
-                .ToListAsync();
+            _context.Set<DetailsDiagnostic>()
+                .Update(entity);
         }
     }
-} 
+}

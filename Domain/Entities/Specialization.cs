@@ -5,12 +5,12 @@ using System.Threading.Tasks;
 
 namespace Domain.Entities
 {
-    public class Specialization
+    public class Specialization : BaseEntity
     {
         public int IdSpecialization { get; set; }
-        public string Name { get; set; }
-        
+        public string? Name { get; set; }
+
         // Navigation properties
-        public ICollection<UserSpecialization> UserSpecializations { get; set; }
+        public ICollection<UserSpecialization>? UserSpecializations { get; set; }
     }
 }
