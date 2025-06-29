@@ -15,5 +15,11 @@ namespace Infrastructure.Repositories
         {
             _context = context;
         }
+        
+        public override async Task<User> GetByIdAsync(int id)
+        {
+            return await _context.User
+                .FirstOrDefaultAsync(cc => cc.IdUser == id) ?? throw new KeyNotFoundException($"User with id {id} was not found");
+        }
     }
 } 

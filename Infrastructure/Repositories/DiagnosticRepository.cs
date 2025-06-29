@@ -15,5 +15,11 @@ namespace Infrastructure.Repositories
         {
             _context = context;
         }
+
+        public override async Task<Diagnostic> GetByIdAsync(int id)
+        {
+            return await _context.Diagnostic
+                .FirstOrDefaultAsync(cc => cc.IdDiagnostic == id) ?? throw new KeyNotFoundException($"Diagnostic with id {id} was not found");
+        }
     }
 } 

@@ -9,10 +9,16 @@ namespace Infrastructure.Repositories
 {
     public class InventoryRepository : GenericRepository<Inventory>, IInventoryRepository
     {
-       private readonly AutoTallerDbContext _context;
+        private readonly AutoTallerDbContext _context;
         public InventoryRepository(AutoTallerDbContext context) : base(context)
         {
             _context = context;
         } 
+        
+        public override async Task<Inventory> GetByIdAsync(int id)
+        {
+            return await _context.Inventory
+                .FirstOrDefaultAsync(cc => cc.IdInventory == id) ?? throw new KeyNotFoundException($"Inventory with id {id} was not found");
+        }
     }
 } 
